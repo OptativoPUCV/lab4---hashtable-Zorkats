@@ -68,6 +68,11 @@ HashMap * createMap(long capacity) {
   if (mapa == NULL) exit(EXIT_FAILURE);
   mapa->buckets = (Pair **) malloc(sizeof(Pair*) * capacity);
   if (mapa->buckets == NULL) exit(EXIT_FAILURE);
+    
+  mapa->size = 0;
+  mapa->capacity = capacity;
+  mapa->current = -1;
+  
   return mapa;
 }
 
