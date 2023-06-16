@@ -103,9 +103,11 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
+  long clave = hash(key,map->capacity);
 
+  if (map->buckets[clave] == NULL) return NULL;
 
-    return NULL;
+  return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
