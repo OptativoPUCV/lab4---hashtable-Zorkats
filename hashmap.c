@@ -107,6 +107,15 @@ Pair * searchMap(HashMap * map,  char * key) {
 
   if (map->buckets[clave] == NULL) return NULL;
 
+  for(long i = clave ; i < map->capacity + clave ; i++){
+    long j = i % map->capacity;
+    if(map->buckets[j] == NULL) return NULL;
+
+    if (is_equal(map->buckets[j]->key,key) == 1) {
+      map->current = j;
+      return map->buckets[j];
+    }
+  }
   return NULL;
 }
 
